@@ -301,11 +301,60 @@ body {
 
     margin: 0;
     margin-bottom: .5em;
+    animation: text-animation-level-1 1.5s;
+}
+
+@keyframes text-animation-level-1{
+    0%{
+        opacity: 0;
+    }
+    70%{
+		opacity: 0;
+    }
+
+	100%{
+	    opacity:100%;	
+	}
 }
 
 .banner__title h2 {
     margin: 0;
     font-weight: var(--medium);
+}
+
+.banner__title-animation-left{
+    animation:  text-animation-level-2 1.5s;
+}
+
+@keyframes text-animation-level-2{
+    0%{
+		opacity: 0;
+        margin-left: -100px;
+        margin-top: -43px;
+    }
+	70%{
+	    opacity:100%;	
+        margin-left: 0;
+        margin-top: -43px;
+	}
+    100%{
+        margin-top: 0;
+    }
+}
+
+.banner__title-animation-right{
+    animation:  text-animation-level-3 1.5s;
+}
+
+@keyframes text-animation-level-3{
+    0%{
+		opacity: 0;
+        margin-left: 100px;
+    }
+	100%{
+	    opacity:100%;	
+        margin-left: 0;
+	}
 }
 
 .banner__title h2 span {

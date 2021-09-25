@@ -116,7 +116,7 @@ const PreLoadAnimation = (function () {
         preload.classList.add('preload--hidden');
         setTimeout(function(){
             preload.style.display = 'none';
-        }, 1250)
+        }, 1200)
     }
 
     function decorateBannerTitleAnimate(){

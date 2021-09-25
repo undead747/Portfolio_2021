@@ -113,7 +113,6 @@ const PreLoadAnimation = (function () {
     });
 
     function FadedAnimation(){
-        loadedContent.style.display = 'initial';
         preload.classList.add('preload--hidden');
         setTimeout(function(){
             preload.style.display = 'none';

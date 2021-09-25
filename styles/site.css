@@ -127,6 +127,103 @@ body {
     }
 }
 
+.preload {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color-dark);
+    z-index: var(--z-index-level-3);
+
+    transition: .5s linear;
+}
+
+.preload__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    text-align: center;
+}
+
+svg.tea {
+    --secondary: var(--primary-color-light);
+}
+
+#teabag {
+    transform-origin: top center;
+    transform: rotate(3deg);
+    animation: swing 2s infinite;
+}
+
+#steamL {
+    stroke-dasharray: 13;
+    stroke-dashoffset: 13;
+    animation: steamLarge 2s infinite;
+}
+
+#steamR {
+    stroke-dasharray: 9;
+    stroke-dashoffset: 9;
+    animation: steamSmall 2s infinite;
+}
+
+@keyframes swing {
+    50% {
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes steamLarge {
+    0% {
+        stroke-dashoffset: 13;
+        opacity: .6;
+    }
+    
+    100% {
+        stroke-dashoffset: 39;
+        opacity: 0;
+    }
+}
+
+@keyframes steamSmall {
+    10% {
+        stroke-dashoffset: 9;
+        opacity: .6;
+    }
+    
+    80% {
+        stroke-dashoffset: 27;
+        opacity: 0;
+    }
+    
+    100% {
+        stroke-dashoffset: 27;
+        opacity: 0;
+    }
+}
+
+.loader {
+    color: var(--primary-color-light);
+}
+
+.loader__dot {
+    animation: 2s blink infinite;
+}
+
+.loader__dot:nth-child(2) {
+    animation-delay: 1000ms;
+}
+
+.loader__dot:nth-child(3) {
+    animation-delay: 1500ms;
+}
+
+@keyframes blink {
+    50% {
+        color: transparent
+    }
+}
 /*=============== Aside  ===============*/
 .aside {
     position: fixed;
@@ -301,20 +398,24 @@ body {
 
     margin: 0;
     margin-bottom: .5em;
+}
+
+.banner__title-animation-bottom{
     animation: text-animation-level-1 1.5s;
 }
 
-@keyframes text-animation-level-1{
-    0%{
+@keyframes text-animation-level-1 {
+    0% {
         opacity: 0;
     }
-    70%{
-		opacity: 0;
+
+    70% {
+        opacity: 0;
     }
 
-	100%{
-	    opacity:100%;	
-	}
+    100% {
+        opacity: 100%;
+    }
 }
 
 .banner__title h2 {
@@ -322,39 +423,42 @@ body {
     font-weight: var(--medium);
 }
 
-.banner__title-animation-left{
-    animation:  text-animation-level-2 1.5s;
+.banner__title-animation-left {
+    animation: text-animation-level-2 1.5s;
 }
 
-@keyframes text-animation-level-2{
-    0%{
-		opacity: 0;
+@keyframes text-animation-level-2 {
+    0% {
+        opacity: 0;
         margin-left: -100px;
         margin-top: -43px;
     }
-	70%{
-	    opacity:100%;	
+
+    70% {
+        opacity: 100%;
         margin-left: 0;
         margin-top: -43px;
-	}
-    100%{
+    }
+
+    100% {
         margin-top: 0;
     }
 }
 
-.banner__title-animation-right{
-    animation:  text-animation-level-3 1.5s;
+.banner__title-animation-right {
+    animation: text-animation-level-3 1.5s;
 }
 
-@keyframes text-animation-level-3{
-    0%{
-		opacity: 0;
+@keyframes text-animation-level-3 {
+    0% {
+        opacity: 0;
         margin-left: 100px;
     }
-	100%{
-	    opacity:100%;	
+
+    100% {
+        opacity: 100%;
         margin-left: 0;
-	}
+    }
 }
 
 .banner__title h2 span {

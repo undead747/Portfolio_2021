@@ -292,6 +292,10 @@ svg.tea {
     margin-top: .5em;
 }
 
+.aside__link--close-icon > i{
+    cursor: pointer;
+}
+
 .sidebar--active {
     color: var(--primary-color-light);
     position: relative;

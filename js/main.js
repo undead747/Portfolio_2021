@@ -93,6 +93,7 @@ const SideBarModule = (function () {
 
 const PreLoadAnimation = (function () {
     const preload = document.getElementById('preload');
+    const loadedContent = document.getElementById('loaded-content');
     const bannerTitleTop = document.querySelector('.js-banner__title-top');
     const bannerTitleBottom1= document.querySelector('.js-banner__title-bottom-1');
     const bannerTitleBottom2 = document.querySelector('.js-banner__title-bottom-2');
@@ -103,10 +104,12 @@ const PreLoadAnimation = (function () {
         if(timePoint < limitTime){
             setTimeout(function(){
                 preload.style.display = 'none';
+                loadedContent.style.display = 'initial';
                 decorateBannerTitleAnimate();
             }, (limitTime - timePoint));
         }else{
             preload.style.display = 'none';
+            loadedContent.style.display = 'initial';
             decorateBannerTitleAnimate();
         }
     });

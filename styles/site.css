@@ -133,8 +133,6 @@ body {
     height: 100vh;
     background-color: var(--primary-color-dark);
     z-index: var(--z-index-level-3);
-
-    transition: .5s linear;
 }
 
 .preload__wrapper {

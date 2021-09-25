@@ -19,290 +19,312 @@
     <div class="preload" id="preload">
         <div class="preload__wrapper">
             <svg class="tea" width="37" height="48" viewBox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z" stroke="var(--secondary)" stroke-width="2"></path>
-                <path d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34" stroke="var(--secondary)" stroke-width="2"></path>
-                <path id="teabag" fill="var(--secondary)" fill-rule="evenodd" clip-rule="evenodd" d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z"></path>
-                <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="var(--secondary)"></path>
-                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
+                <path
+                    d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z"
+                    stroke="var(--secondary)" stroke-width="2"></path>
+                <path
+                    d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34"
+                    stroke="var(--secondary)" stroke-width="2"></path>
+                <path id="teabag" fill="var(--secondary)" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z">
+                </path>
+                <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" stroke="var(--secondary)"></path>
+                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="var(--secondary)"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
 
             <div class="loader">Loading<span class="loader__dot">.</span><span class="loader__dot">.</span><span
                     class="loader__dot">.</span></div>
         </div>
     </div>
-    <aside id="aside" class="aside" style="position: fixed;">
-        <a type="button" class="aside__link aside__link--close-icon js-side-bar-toggle"><i class="fas fa-times"></i></a>
-        <div class="aside__link-group">
-            <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link">Home</a>
-            <a id="about-link" href="#about" class="aside__link js-aside__link">About</a>
-            <a id="service-link" href="#service" class="aside__link js-aside__link">Service</a>
-            <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link">Portfolio</a>
-            <a id="contact-link" href="#contact" class="aside__link js-aside__link">Contact</a>
-        </div>
-    </aside>
+    <div class="loaded-content" id="loaded-content" style="display: none;">
+        <aside id="aside" class="aside" style="position: fixed;">
+            <a type="button" class="aside__link aside__link--close-icon js-side-bar-toggle"><i
+                    class="fas fa-times"></i></a>
+            <div class="aside__link-group">
+                <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link">Home</a>
+                <a id="about-link" href="#about" class="aside__link js-aside__link">About</a>
+                <a id="service-link" href="#service" class="aside__link js-aside__link">Service</a>
+                <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link">Portfolio</a>
+                <a id="contact-link" href="#contact" class="aside__link js-aside__link">Contact</a>
+            </div>
+        </aside>
 
-    <section class="banner" id="banner">
-        <div class="banner__group-icon">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-github-square"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="banner__header banner__header--scroll-default" id="banner-header">
-            <i class="fab fa-medium-m banner__icon"></i>
-            <i class="fas fa-bars banner__sidebar-icon js-side-bar-toggle"></i>
-        </div>
-        <div class="banner__title">
-            <h3 class="js-banner__title-top">hi, my name is </h3>
-            <h2 class="js-banner__title-bottom-1">
-                TRAN CONG MINH,
-            </h2>
-            <h2 class="js-banner__title-bottom-2">
-                WEB/UI DEVELOPER
-            </h2>
-        </div>
-        <p class="banner__project-scroll">
-            <a class="btn--project-scroll" href="#portfolio">
-                PROJECTS
-                <br />
-                <span class="arrow-icon"></span>
+        <section class="banner" id="banner">
+            <div class="banner__group-icon">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github-square"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="banner__header banner__header--scroll-default" id="banner-header">
+                <i class="fab fa-medium-m banner__icon"></i>
+                <i class="fas fa-bars banner__sidebar-icon js-side-bar-toggle"></i>
+            </div>
+            <div class="banner__title">
+                <h3 class="js-banner__title-top">hi, my name is </h3>
+                <h2 class="js-banner__title-bottom-1">
+                    TRAN CONG MINH,
+                </h2>
+                <h2 class="js-banner__title-bottom-2">
+                    WEB/UI DEVELOPER
+                </h2>
+            </div>
+            <p class="banner__project-scroll">
+                <a class="btn--project-scroll" href="#portfolio">
+                    PROJECTS
+                    <br />
+                    <span class="arrow-icon"></span>
+                </a>
+            </p>
+            <a href="#about" class="btn-scroll-down">
+                SCROLL
             </a>
-        </p>
-        <a href="#about" class="btn-scroll-down">
-            SCROLL
-        </a>
-    </section>
+        </section>
 
-    <section class="about" id="about">
-        <div class="about__wrapper">
-            <div class="about__title">
-                <h3 class="title-type-1 title-type-1--about" data-aos="fade-up">ABOUT ME</h3>
-            </div>
-            <picture class="about__image-wrapper" data-aos="fade-right">
-                <source srcset="https://i.imgur.com/zcy3XoC.png" media="(min-width: 768px)">
-                <source srcset="https://i.imgur.com/jtWf86N.png" media="(min-width: 992px)">
-                <img class="about__image" src="https://i.imgur.com/utIdIsw.png" alt="Some picture test">
-            </picture>
-            <div class="about__content" data-aos="fade-down">
-                <div class="about__essay">
-                    <p class="about__quote">" Every great design begin with an even better story "</p>
-                    <p>My name is Ann Smith. I am a senior in high school. Everyone can agree that I am a good student
-                        and
-                        that
-                        I like to study. My favorite subjects are chemistry and biology. I am going to enter the
-                        university
-                        because my goal is to study these subjects in future and to become a respected professional in
-                        one
-                        of
-                        the fields.</p>
-                    <p>
-                        My name is Ann Smith. I am a senior in high school.
-                    </p>
+        <section class="about" id="about">
+            <div class="about__wrapper">
+                <div class="about__title">
+                    <h3 class="title-type-1 title-type-1--about" data-aos="fade-up">ABOUT ME</h3>
                 </div>
-
-                <div class="resume">
-                    <div class="resume__title">
-                        <h4 class="title-type-1 title-type-1--resume">Work Experience</h4>
+                <picture class="about__image-wrapper" data-aos="fade-right">
+                    <source srcset="https://i.imgur.com/zcy3XoC.png" media="(min-width: 768px)">
+                    <source srcset="https://i.imgur.com/jtWf86N.png" media="(min-width: 992px)">
+                    <img class="about__image" src="https://i.imgur.com/utIdIsw.png" alt="Some picture test">
+                </picture>
+                <div class="about__content" data-aos="fade-down">
+                    <div class="about__essay">
+                        <p class="about__quote">" Every great design begin with an even better story "</p>
+                        <p>My name is Ann Smith. I am a senior in high school. Everyone can agree that I am a good
+                            student
+                            and
+                            that
+                            I like to study. My favorite subjects are chemistry and biology. I am going to enter the
+                            university
+                            because my goal is to study these subjects in future and to become a respected professional
+                            in
+                            one
+                            of
+                            the fields.</p>
+                        <p>
+                            My name is Ann Smith. I am a senior in high school.
+                        </p>
                     </div>
 
-                    <div class="resume-item">
-                        <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 5/2019 - 7/2019</span>
-                        <div class="resume-item__title">
-                            <h4>Intern</h4>
-                            <h4><i class="fas fa-briefcase"></i> Sun Asterisk Inc.</h4>
+                    <div class="resume">
+                        <div class="resume__title">
+                            <h4 class="title-type-1 title-type-1--resume">Work Experience</h4>
                         </div>
-                        <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-                            repudiandae.
-                            Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.</p>
-                    </div>
 
-                    <div class="resume-item">
-                        <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 6/2020 - Present</span>
-                        <div class="resume-item__title">
-                            <h4>Junior Software Developer</h4>
-                            <h4><i class="fas fa-briefcase"></i>日本システム株式会社</h4>
+                        <div class="resume-item">
+                            <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 5/2019 - 7/2019</span>
+                            <div class="resume-item__title">
+                                <h4>Intern</h4>
+                                <h4><i class="fas fa-briefcase"></i> Sun Asterisk Inc.</h4>
+                            </div>
+                            <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptas,
+                                repudiandae.
+                                Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.
+                            </p>
                         </div>
-                        <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-                            repudiandae.
-                            Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.</p>
-                    </div>
 
-                    <h4 class="resume__education-title title title--resume">
-                        Education and certificate
-                    </h4>
-                    <div class="resume-item">
-                        <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 2015 - 2020</span>
-                        <div class="resume-item__title">
-                            <h4>Engineer</h4>
-                            <h4><i class="fas fa-university"></i> Danang University of Science and Technology</h4>
+                        <div class="resume-item">
+                            <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 6/2020 - Present</span>
+                            <div class="resume-item__title">
+                                <h4>Junior Software Developer</h4>
+                                <h4><i class="fas fa-briefcase"></i>日本システム株式会社</h4>
+                            </div>
+                            <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptas,
+                                repudiandae.
+                                Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.
+                            </p>
                         </div>
-                        <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-                            repudiandae.
-                            Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.</p>
-                    </div>
-                    <div class="resume-item">
-                        <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 8/2019</span>
-                        <div class="resume-item__title">
-                            <h4><i class="fas fa-id-card"></i> Japanese-Language Proficiency Test N3 Certificate</h4>
+
+                        <h4 class="resume__education-title title title--resume">
+                            Education and certificate
+                        </h4>
+                        <div class="resume-item">
+                            <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 2015 - 2020</span>
+                            <div class="resume-item__title">
+                                <h4>Engineer</h4>
+                                <h4><i class="fas fa-university"></i> Danang University of Science and Technology</h4>
+                            </div>
+                            <p class="resume-item-essay">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptas,
+                                repudiandae.
+                                Perferendis quibusdam iste officia laudantium consequuntur qui atque autem. Veritatis.
+                            </p>
+                        </div>
+                        <div class="resume-item">
+                            <span class="resume-item__date"><i class="fas fa-calendar-week"></i> 8/2019</span>
+                            <div class="resume-item__title">
+                                <h4><i class="fas fa-id-card"></i> Japanese-Language Proficiency Test N3 Certificate
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="service" id="service">
-        <div class="service__title title-type-2" data-aos="fade-up">
-            <h4>WHAT I DO</h4>
-            <h3>My Services</h3>
-        </div>
-        <div class="service__content">
-            <div class="card service--card" data-aos="fade-right">
-                <div class="card__main">
-                    <div class="card__image card__image--icon-only">
-                        <i class="fas fa-pencil-ruler"></i>
+        <section class="service" id="service">
+            <div class="service__title title-type-2" data-aos="fade-up">
+                <h4>WHAT I DO</h4>
+                <h3>My Services</h3>
+            </div>
+            <div class="service__content">
+                <div class="card service--card" data-aos="fade-right">
+                    <div class="card__main">
+                        <div class="card__image card__image--icon-only">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h4 class="card__title">UX/UI DESIGN</h4>
+                        <p class="card__quote">
+                            I value simple content structure, clean design patterns, and thoughtful interactions.
+                        </p>
                     </div>
-                    <h4 class="card__title">UX/UI DESIGN</h4>
-                    <p class="card__quote">
-                        I value simple content structure, clean design patterns, and thoughtful interactions.
-                    </p>
+
+                    <div class="card__footer">
+                        <h4 class="card__footer-title">Tool I use</h4>
+                        <div class="card__footer-content">
+                            <h5 class="card__footer-item"><img src="images/logo-xd.png" alt="">Adobe xd</h5>
+                            <h5 class="card__footer-item"><img src="images/logo-ps.png" alt="">Photoshop</h5>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card__footer">
-                    <h4 class="card__footer-title">Tool I use</h4>
-                    <div class="card__footer-content">
-                        <h5 class="card__footer-item"><img src="images/logo-xd.png" alt="">Adobe xd</h5>
-                        <h5 class="card__footer-item"><img src="images/logo-ps.png" alt="">Photoshop</h5>
+                <div class="card service--card" data-aos="fade-left">
+                    <div class="card__main">
+                        <div class="card__image card__image--icon-only">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4 class="card__title">WEB DEVELOPMENT</h4>
+                        <p class="card__quote">
+                            I like to code things from scratch, and enjoy bringing ideas to life in the browser.
+                        </p>
+                    </div>
+
+                    <div class="card__footer">
+                        <h4 class="card__footer-title">Tool I use</h4>
+                        <div class="card__footer-content card__footer-content--vertical">
+                            <h5 class="card__footer-item"><i class="fas fa-code"></i> JavaScript, jquery, knockout,
+                                react
+                            </h5>
+                            <h5 class="card__footer-item"><i class="fas fa-code"></i>HTML, CSS</h5>
+                            <h5 class="card__footer-item"><i class="fas fa-code"></i>C# (ASP.NET), Ruby on Rails</h5>
+                            <h5 class="card__footer-item"><i class="fab fa-github-square"></i>Git (Azure Devop, GitHub)
+                            </h5>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card service--card" data-aos="fade-left">
-                <div class="card__main">
-                    <div class="card__image card__image--icon-only">
-                        <i class="fas fa-laptop"></i>
+        <section class="portfolio" id="portfolio">
+            <div class="title-type-2 portfolio__title" data-aos="fade-up">
+                <h4>CASE STUDIES</h4>
+                <h3>Latest Works</h3>
+            </div>
+
+            <div class="portfolio__content">
+                <div class="portfolio__card" data-aos="fade-right">
+                    <div class="portfolio__card-image portfolio__card-image--item-1">
+                        <img src="images/mock-website.jpg" alt="" class="portfolio__card-image">
                     </div>
-                    <h4 class="card__title">WEB DEVELOPMENT</h4>
-                    <p class="card__quote">
-                        I like to code things from scratch, and enjoy bringing ideas to life in the browser.
-                    </p>
+
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-title">
+                            <h4>Project - A</h4>
+                            <h5>A Book Review Website</h5>
+                        </div>
+                        <a href="#" class="btn btn--portfolio-card">
+                            See Details
+                        </a>
+                    </div>
                 </div>
 
-                <div class="card__footer">
-                    <h4 class="card__footer-title">Tool I use</h4>
-                    <div class="card__footer-content card__footer-content--vertical">
-                        <h5 class="card__footer-item"><i class="fas fa-code"></i> JavaScript, jquery, knockout, react
-                        </h5>
-                        <h5 class="card__footer-item"><i class="fas fa-code"></i>HTML, CSS</h5>
-                        <h5 class="card__footer-item"><i class="fas fa-code"></i>C# (ASP.NET), Ruby on Rails</h5>
-                        <h5 class="card__footer-item"><i class="fab fa-github-square"></i>Git (Azure Devop, GitHub)</h5>
+                <div class="portfolio__card" data-aos="fade-left">
+                    <div class="portfolio__card-image portfolio__card-image--item-2">
+                        <img src="images/mock-website (2).jpg" alt="" class="portfolio__card-image">
+                    </div>
+
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-title">
+                            <h4>Project - B</h4>
+                            <h5>Task Manager Web Application</h5>
+                        </div>
+                        <a href="#" class="btn btn--portfolio-card">
+                            See Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio__card" data-aos="fade-right">
+                    <div class="portfolio__card-image portfolio__card-image--item-3">
+                        <img src="images/mock-website (3).jpg" alt="" class="portfolio__card-image">
+                    </div>
+
+                    <div class="portfolio__card-content">
+                        <div class="portfolio__card-title">
+                            <h4>Project - C</h4>
+                            <h5>Portfolio Website</h5>
+                        </div>
+                        <a href="#" class="btn btn--portfolio-card">
+                            See Details
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="portfolio" id="portfolio">
-        <div class="title-type-2 portfolio__title" data-aos="fade-up">
-            <h4>CASE STUDIES</h4>
-            <h3>Latest Works</h3>
-        </div>
-
-        <div class="portfolio__content">
-            <div class="portfolio__card" data-aos="fade-right">
-                <div class="portfolio__card-image portfolio__card-image--item-1">
-                    <img src="images/mock-website.jpg" alt="" class="portfolio__card-image">
+        <section class="contact" id="contact">
+            <div class="contact__wrapper" data-aos="fade-up">
+                <div class="contact__title title-type-2 title-type-2--contact">
+                    <h4>Contact Me</h4>
+                    <h3>Reach out for a new project or just say hello</h3>
                 </div>
-
-                <div class="portfolio__card-content">
-                    <div class="portfolio__card-title">
-                        <h4>Project - A</h4>
-                        <h5>A Book Review Website</h5>
+                <form class="contact__form form" action="" method="get">
+                    <div>
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="contact-name" placeholder="Enter your name">
                     </div>
-                    <a href="#" class="btn btn--portfolio-card">
-                        See Details
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio__card" data-aos="fade-left">
-                <div class="portfolio__card-image portfolio__card-image--item-2">
-                    <img src="images/mock-website (2).jpg" alt="" class="portfolio__card-image">
-                </div>
-
-                <div class="portfolio__card-content">
-                    <div class="portfolio__card-title">
-                        <h4>Project - B</h4>
-                        <h5>Task Manager Web Application</h5>
+                    <div>
+                        <label for="contact-email">Email</label>
+                        <input type="text" id="contact-email" name="contact-email" placeholder="Enter your email">
                     </div>
-                    <a href="#" class="btn btn--portfolio-card">
-                        See Details
-                    </a>
-                </div>
-            </div>
-
-            <div class="portfolio__card" data-aos="fade-right">
-                <div class="portfolio__card-image portfolio__card-image--item-3">
-                    <img src="images/mock-website (3).jpg" alt="" class="portfolio__card-image">
-                </div>
-
-                <div class="portfolio__card-content">
-                    <div class="portfolio__card-title">
-                        <h4>Project - C</h4>
-                        <h5>Portfolio Website</h5>
+                    <div>
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="contact-subject"
+                            placeholder="Enter your email subject">
                     </div>
-                    <a href="#" class="btn btn--portfolio-card">
-                        See Details
-                    </a>
+                    <div>
+                        <label for="contact-message">Your Message</label>
+                        <textarea id="contact-message" rows="4"></textarea>
+                    </div>
+                    <button id="contact-submit-button" class="btn btn--contact" type="submit">Submit</button>
+                </form>
+
+                <div class="contact__info">
+                    <h4 class="contact__info-title">Contact Info</h4>
+                    <p class="contact__info-content"><i class="fas fa-envelope"></i>minhtrandev1997@gmail.com</p>
+                    <p class="contact__info-content"><i class="fas fa-globe"></i>minhtranportfolio.com</p>
+                    <div class="contact__info-icon-group">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github-square"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="contact" id="contact">
-        <div class="contact__wrapper" data-aos="fade-up">
-            <div class="contact__title title-type-2 title-type-2--contact">
-                <h4>Contact Me</h4>
-                <h3>Reach out for a new project or just say hello</h3>
-            </div>
-            <form class="contact__form form" action="" method="get">
-                <div>
-                    <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="contact-name" placeholder="Enter your name">
-                </div>
-                <div>
-                    <label for="contact-email">Email</label>
-                    <input type="text" id="contact-email" name="contact-email" placeholder="Enter your email">
-                </div>
-                <div>
-                    <label for="contact-subject">Subject</label>
-                    <input type="text" id="contact-subject" name="contact-subject"
-                        placeholder="Enter your email subject">
-                </div>
-                <div>
-                    <label for="contact-message">Your Message</label>
-                    <textarea id="contact-message" rows="4"></textarea>
-                </div>
-                <button id="contact-submit-button" class="btn btn--contact" type="submit">Submit</button>
-            </form>
-
-            <div class="contact__info">
-                <h4 class="contact__info-title">Contact Info</h4>
-                <p class="contact__info-content"><i class="fas fa-envelope"></i>minhtrandev1997@gmail.com</p>
-                <p class="contact__info-content"><i class="fas fa-globe"></i>minhtranportfolio.com</p>
-                <div class="contact__info-icon-group">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github-square"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p class="footer__content">Tran Cong Minh © 2021. All Rights Reserved</p>
-    </footer>
+        <footer class="footer">
+            <p class="footer__content">Tran Cong Minh © 2021. All Rights Reserved</p>
+        </footer>
+    </div>
 
     <!-- AOS - Animate On Scroll Library -->
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>

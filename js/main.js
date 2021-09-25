@@ -103,16 +103,22 @@ const PreLoadAnimation = (function () {
         var timePoint = performance.now();
         if(timePoint < limitTime){
             setTimeout(function(){
-                preload.style.display = 'none';
-                loadedContent.style.display = 'initial';
+                FadedAnimation();
                 decorateBannerTitleAnimate();
             }, (limitTime - timePoint));
         }else{
-            preload.style.display = 'none';
-            loadedContent.style.display = 'initial';
+            FadedAnimation();
             decorateBannerTitleAnimate();
         }
     });
+
+    function FadedAnimation(){
+        loadedContent.style.display = 'initial';
+        preload.classList.add('preload--hidden');
+        setTimeout(function(){
+            preload.style.display = 'none';
+        }, 1250)
+    }
 
     function decorateBannerTitleAnimate(){
         bannerTitleTop.classList.add('banner__title-animation-bottom');

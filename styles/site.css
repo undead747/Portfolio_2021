@@ -135,12 +135,25 @@ body {
     z-index: var(--z-index-level-3);
 }
 
+.preload--hidden{
+    animation: fade-out 1.2s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
 .preload__wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     text-align: center;
 }
 
@@ -177,7 +190,7 @@ svg.tea {
         stroke-dashoffset: 13;
         opacity: .6;
     }
-    
+
     100% {
         stroke-dashoffset: 39;
         opacity: 0;
@@ -189,12 +202,12 @@ svg.tea {
         stroke-dashoffset: 9;
         opacity: .6;
     }
-    
+
     80% {
         stroke-dashoffset: 27;
         opacity: 0;
     }
-    
+
     100% {
         stroke-dashoffset: 27;
         opacity: 0;
@@ -222,6 +235,7 @@ svg.tea {
         color: transparent
     }
 }
+
 /*=============== Aside  ===============*/
 .aside {
     position: fixed;
@@ -398,7 +412,7 @@ svg.tea {
     margin-bottom: .5em;
 }
 
-.banner__title-animation-bottom{
+.banner__title-animation-bottom {
     animation: text-animation-level-1 1.5s;
 }
 

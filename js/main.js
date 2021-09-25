@@ -96,7 +96,7 @@ const PreLoadAnimation = (function () {
     const bannerTitleTop = document.querySelector('.js-banner__title-top');
     const bannerTitleBottom1= document.querySelector('.js-banner__title-bottom-1');
     const bannerTitleBottom2 = document.querySelector('.js-banner__title-bottom-2');
-    const limitTime = 1000;
+    const limitTime = 1500;
 
     window.addEventListener('load', (event) => {
         var timePoint = performance.now();

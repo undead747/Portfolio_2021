@@ -236,6 +236,20 @@ svg.tea {
     }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--primary-color-dark) inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill{
+    -webkit-text-fill-color: var(--primary-color-light) !important;
+    border: none;
+    border-bottom: 2px solid var(--primary-color-light);
+}
+
 /*=============== Aside  ===============*/
 .aside {
     position: fixed;
@@ -1052,7 +1066,7 @@ section {
 
 .form input,
 .form textarea {
-    font-size: 1r em;
+    font-size: 1rem;
     display: block;
     width: 100%;
     background: transparent;

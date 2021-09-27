@@ -95,35 +95,58 @@ const PreLoadAnimation = (function () {
     const preload = document.getElementById('preload');
     const loadedContent = document.getElementById('loaded-content');
     const bannerTitleTop = document.querySelector('.js-banner__title-top');
-    const bannerTitleBottom1= document.querySelector('.js-banner__title-bottom-1');
+    const bannerTitleBottom1 = document.querySelector('.js-banner__title-bottom-1');
     const bannerTitleBottom2 = document.querySelector('.js-banner__title-bottom-2');
     const limitTime = 1500;
 
     window.addEventListener('load', (event) => {
         var timePoint = performance.now();
-        if(timePoint < limitTime){
-            setTimeout(function(){
+        if (timePoint < limitTime) {
+            setTimeout(function () {
                 FadedAnimation();
                 decorateBannerTitleAnimate();
             }, (limitTime - timePoint));
-        }else{
+        } else {
             FadedAnimation();
             decorateBannerTitleAnimate();
         }
     });
 
-    function FadedAnimation(){
+    function FadedAnimation() {
         preload.classList.add('preload--hidden');
-        setTimeout(function(){
+        setTimeout(function () {
             preload.style.display = 'none';
         }, 1200)
     }
 
-    function decorateBannerTitleAnimate(){
+    function decorateBannerTitleAnimate() {
         bannerTitleTop.classList.add('banner__title-animation-bottom');
         bannerTitleBottom1.classList.add('banner__title-animation-left');
-        bannerTitleBottom2.classList.add('banner__title-animation-right'); 
+        bannerTitleBottom2.classList.add('banner__title-animation-right');
     }
+})()
+
+const EmailService = (function () {
+    var modal = document.getElementById("modal-type-1");
+    var modalText = document.getElementById("email-message-text");
+    emailjs.init('user_Ubj9Yj81C14AvGgwmUkwf');
+
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = Math.random() * 100000 | 0;
+        // Service_Id + template_Id
+        emailjs.sendForm('service_ew59x8a', 'template_hxytvei', this)
+            .then(function () {
+                modal.style.display = "block";
+                modalText.innerText = 'Thank you for sending me a message. I will reply soon';
+                setTimeout(function(){
+                    modal.style.display = "none"; 
+                }, 1500);
+            }, function (error) {
+                modalText.innerText = 'Some thing when wrong, please try again';
+            });
+    });
 })()
 
 SmoothScroll({

@@ -286,7 +286,8 @@
                     <h4>Contact Me</h4>
                     <h3>Reach out for a new project or just say hello</h3>
                 </div>
-                <form class="contact__form form" action="" method="get">
+                <form class="contact__form form" id="contact-form">
+                    <input type="hidden" name="contact_number">
                     <div>
                         <label for="contact-name">Name</label>
                         <input type="text" id="contact-name" name="contact-name" placeholder="Enter your name">
@@ -302,7 +303,7 @@
                     </div>
                     <div>
                         <label for="contact-message">Your Message</label>
-                        <textarea id="contact-message" rows="4"></textarea>
+                        <textarea id="contact-message" name="contact-message" rows="4"></textarea>
                     </div>
                     <button id="contact-submit-button" class="btn btn--contact" type="submit">Submit</button>
                 </form>
@@ -324,12 +325,27 @@
         <footer class="footer">
             <p class="footer__content">Tran Cong Minh © 2021. All Rights Reserved</p>
         </footer>
+
+        <!-- The Modal -->
+        <div id="modal-type-1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="default-flex-vertical email-success-message">
+                        <i class="far fa-check-circle email-success-message__icon"></i>
+                        <p class="email-success-message__text" id="email-message-text">Thank you for sending me a message. I will reply soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- AOS - Animate On Scroll Library -->
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <!-- Smooth-Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <!-- Main js -->
     <script src="js/main.js"></script>
 </body>

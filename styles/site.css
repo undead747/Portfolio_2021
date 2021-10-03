@@ -268,10 +268,6 @@ svg.tea {
     border-radius: 5px;
     background-color: var(--primary-color-dark);
     color: var(--primary-color-light);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.5s;
 }
 
 .email-success-message__icon{
@@ -282,8 +278,21 @@ svg.tea {
     font-size: var(--font-size-level-1);
 }
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
+.modal-hide-animation{
+    -webkit-animation-name: animate-modal-hide;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animate-modal-hide;
+    animation-duration: 0.5s;
+}
+
+.modal-show-animation{
+    -webkit-animation-name: animate-modal-show;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animate-modal-show;
+    animation-duration: 0.5s;
+}
+
+@-webkit-keyframes animate-modal-show {
     from {
         top: 0;
         opacity: 0;
@@ -295,7 +304,7 @@ svg.tea {
     }
 }
 
-@keyframes animatetop {
+@keyframes animate-modal-show {
     from {
         top: 0;
         opacity: 0;
@@ -304,6 +313,50 @@ svg.tea {
     to {
         top: 20%;
         opacity: 1;
+    }
+}
+
+@-webkit-keyframes animate-modal-hide {
+    from {
+        top: 20%;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes animate-modal-hide {
+    from {
+        top: 20%;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes animate-modal-faded {
+    83% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes animate-modal-faded {
+    83% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -1117,6 +1170,11 @@ section {
 .form {
     max-width: 500px;
     margin: 0 auto;
+}
+
+.form--dark input,
+.form--dark textarea{
+    color: var(--primary-color-light);
 }
 
 @media only screen and (min-width: 992px) {

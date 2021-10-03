@@ -1045,8 +1045,8 @@ section {
 }
 
 .portfolio__card-image {
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
+    /* filter: blur(1px);
+    -webkit-filter: blur(1px); */
 }
 
 .portfolio__card-image--item-1 {

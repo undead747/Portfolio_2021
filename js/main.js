@@ -169,13 +169,11 @@ const EmailService = (function () {
         emailjs.sendForm(serviceId, templateId, this)
             .then(function () {
         (new App.PreloadVisibility()).Hidden();
-
         (new App.ModalVisibility()).Active();
         App.SetModalText('Thank you for sending me a message. I will reply soon', App.MessageMode.Success);
 
-        setTimeout(function () {
-            (new App.ModalVisibility()).Hidden();
-        }, messageDisplayTime);
+        
+        
         }, function (error) {
             App.SetModalText('Some thing when wrong, please try again', App.MessageMode.Fail);
         });

@@ -174,11 +174,13 @@ const EmailService = (function () {
 
                 setTimeout(function () {
                     (new App.ModalVisibility()).Hidden();
+                    document.getElementById('contact-form').reset();
                 }, messageDisplayTime);
             }, function (error) {
                 App.SetModalText('Some thing when wrong, please try again', App.MessageMode.Fail);
                 setTimeout(function () {
                     (new App.ModalVisibility()).Hidden();
+                    document.getElementById('contact-form').reset();
                 }, messageDisplayTime);
             });
     });

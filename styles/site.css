@@ -263,18 +263,28 @@ svg.tea {
     margin: auto;
     top: 20%;
     padding: .5em;
-    width: 70vmin;
+    max-width: 22em;
     min-height: 8vmax;
     border-radius: 5px;
     background-color: var(--primary-color-dark);
     color: var(--primary-color-light);
 }
 
-.email-success-message__icon{
+@media only screen and (min-width: 576px){
+    .modal-content {
+        max-width: 35em;
+    }
+}
+
+.email-message{
+    gap: 1em;
+}
+
+.email-message__icon{
     font-size: var(--font-size-level-4);
 }
 
-.email-success-message__text{
+.email-message__text{
     font-size: var(--font-size-level-1);
 }
 

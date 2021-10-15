@@ -168,15 +168,19 @@ const EmailService = (function () {
         //Start Sending Email
         emailjs.sendForm(serviceId, templateId, this)
             .then(function () {
-        (new App.PreloadVisibility()).Hidden();
-        (new App.ModalVisibility()).Active();
-        App.SetModalText('Thank you for sending me a message. I will reply soon', App.MessageMode.Success);
+                (new App.PreloadVisibility()).Hidden();
+                (new App.ModalVisibility()).Active();
+                App.SetModalText('Thank you for sending me a message. I will reply soon', App.MessageMode.Success);
 
-        
-        
-        }, function (error) {
-            App.SetModalText('Some thing when wrong, please try again', App.MessageMode.Fail);
-        });
+                setTimeout(function () {
+                    (new App.ModalVisibility()).Hidden();
+                }, messageDisplayTime);
+            }, function (error) {
+                App.SetModalText('Some thing when wrong, please try again', App.MessageMode.Fail);
+                setTimeout(function () {
+                    (new App.ModalVisibility()).Hidden();
+                }, messageDisplayTime);
+            });
     });
 })()
 
@@ -220,14 +224,17 @@ const ModalModule = (function () {
                 successIcon.style.display = "block";
                 failIcon.style.display = "none";
                 errorIcon.style.display = "none";
+                break;
             case MessageMode.Fail:
                 successIcon.style.display = "none";
                 failIcon.style.display = "block";
                 errorIcon.style.display = "none";
+                break;
             case MessageMode.Error:
                 successIcon.style.display = "none";
                 failIcon.style.display = "none";
                 errorIcon.style.display = "block";
+                break;
         }
     }
 

@@ -108,14 +108,14 @@ const HeaderModule = (function () {
     });
 })();
 
-const PreLoadAnimation = (function () {
+const PreLoadAnimationModule = (function () {
     const preload = document.getElementById('preload');
     const bannerTitleTop = document.querySelector('.js-banner__title-top');
     const bannerTitleBottom1 = document.querySelector('.js-banner__title-bottom-1');
     const bannerTitleBottom2 = document.querySelector('.js-banner__title-bottom-2');
     const limitTime = 1500;
 
-    window.addEventListener('load', (event) => {
+    function OnLoadPreloadAnimation() {
         var timePoint = performance.now();
         if (timePoint < limitTime) {
             setTimeout(function () {
@@ -126,7 +126,7 @@ const PreLoadAnimation = (function () {
             (new PreloadVisibility()).Hidden();
             decorateBannerTitleAnimate();
         }
-    });
+    }
 
     // Make loading animation slowly faded
     function PreloadVisibility() {
@@ -151,6 +151,7 @@ const PreLoadAnimation = (function () {
     }
 
     App.PreloadVisibility = PreloadVisibility;
+    App.OnLoadPreloadAnimation = OnLoadPreloadAnimation;
 })()
 
 const EmailService = (function () {
@@ -244,6 +245,220 @@ const ModalModule = (function () {
     App.SetModalText = SetModalText;
     App.MessageMode = MessageMode;
 })()
+
+const FetchDataService = (function () {
+    const dataSetName = "portfolio2021";
+
+    const client = contentful.createClient({
+        space: "np5xiu7p1a25",
+        accessToken: "64YNvoh63aQMrddRtnNAVZxHlXGdfRMjuoeB4cnXE_Q"
+    });
+
+    async function FetchLanguage() {
+        return await client.getEntries({
+            content_type: dataSetName
+        }).then(function (data) {
+            let items = data.items;
+            items = items.map(function (item) {
+                return item.fields;
+            })
+
+            return items;
+        })
+    }
+
+    App.FetchLanguage = FetchLanguage;
+})()
+
+const CheckUserCountryService = (function () {
+    function fetchCountryData() {
+        return fetch('https://extreme-ip-lookup.com/json/?key=hsA5j5AAWFkKE4VLTLDZ')
+            .then(function (data) {
+                return data.json();
+            })
+            .catch((data, status) => {
+                console.log('Request failed');
+            });
+    }
+
+    App.FetchCountryData = fetchCountryData;
+})();
+
+function LaguageViewModel() {
+    var self = this;
+
+    self.Banner = {
+        sectionTitle: ko.observable(),
+        title_1: ko.observable(),
+        title_2: ko.observable(),
+        title_3: ko.observable(),
+        buttonTitle: ko.observable(),
+        scrollTitle: ko.observable()
+    };
+
+    self.About = {
+        sectionTitle: ko.observable(),
+        paragraph_1: ko.observable(),
+        paragraph_2: ko.observable()
+    };
+
+    self.ResumePartOne = {
+        sectionTitle: ko.observable(),
+        contentBlocks: ko.observableArray()
+    };
+
+    self.ResumePartTwo = {
+        sectionTitle: ko.observable(),
+        contentBlocks: ko.observableArray()
+    };
+
+    self.Services = {
+        sectionTitle: ko.observable(),
+        title_1: ko.observable(),
+        title_2: ko.observable(),
+        contentBlocks: ko.observable()
+    };
+
+    self.Portfolio = {
+        sectionTitle: ko.observable(),
+        title_1: ko.observable(),
+        title_2: ko.observable(),
+        contentBlocks: ko.observableArray()
+    };
+
+    self.Contact = {
+        sectionTitle: ko.observable(),
+        title_1: ko.observable(),
+        title_2: ko.observable(),
+        title_3: ko.observable(),
+        contactForm: {
+            name: ko.observable(),
+            email: ko.observable(),
+            subject: ko.observable(),
+            message: ko.observable(),
+            submit: ko.observable()
+        }
+    };
+
+    var Language = {
+        VietNam: {
+            Id: 0,
+            Code: "VN"
+        },
+        Japan: {
+            Id: 1,
+            Code: "JP"
+        }
+    }
+
+    var Section = {
+        Banner: {
+            id: 0,
+            name: "banner"
+        },
+        About: {
+            id: 1,
+            name: "about"
+        },
+        Resume_1: {
+            id: 2,
+            name: "resume"
+        },
+        Resume_2: {
+            id: 3,
+            name: "resume"
+        },
+        Service: {
+            id: 4,
+            name: "service"
+        },
+        Portfilio: {
+            id: 5,
+            name: "portfolio"
+        },
+        Contact: {
+            id: 6,
+            name: "contact"
+        },
+        Message: {
+            id: 7,
+            name: "message"
+        }
+    }
+
+    function getSectionById(id, data) {
+        return data.filter(function (item) {
+            return item.id === id
+        })[0];
+    }
+
+    function InitViewModel(data) {
+        var bannerData = getSectionById(Section.Banner.id, data);
+        var aboutData = getSectionById(Section.About.id, data);
+        var resumePart1Data = getSectionById(Section.Resume_1.id, data);
+        var resumePart2Data = getSectionById(Section.Resume_2.id, data);
+        var serviceData = getSectionById(Section.Service.id, data);
+        var portfolioData = getSectionById(Section.Portfilio.id, data);
+        var contactData = getSectionById(Section.Contact.id, data);
+        var messageData = getSectionById(Section.Message.id, data);
+
+        self.Banner.sectionTitle(bannerData.title);
+        self.Banner.title_1(bannerData.content.title_1);
+        self.Banner.title_2(bannerData.content.title_2);
+        self.Banner.title_3(bannerData.content.title_3);
+        self.Banner.buttonTitle(bannerData.content.icon_1_title);
+        self.Banner.scrollTitle(bannerData.content.icon_2_title);
+
+        self.About.sectionTitle(aboutData.title);
+        self.About.paragraph_1(aboutData.content.p_1);
+        self.About.paragraph_2(aboutData.content.p_2);
+        
+        self.ResumePartOne.sectionTitle(resumePart1Data.title);
+        self.ResumePartOne.contentBlocks(resumePart1Data.content);
+
+        self.ResumePartTwo.sectionTitle(resumePart2Data.title);
+        self.ResumePartTwo.contentBlocks(resumePart2Data.content);
+
+        self.Services.title_1(serviceData.title_1);
+        self.Services.title_2(serviceData.title_2);
+        self.Services.contentBlocks(serviceData.content);
+        
+        self.Portfolio.title_1(portfolioData.title_1);
+        self.Portfolio.title_2(portfolioData.title_2);
+        self.Portfolio.contentBlocks(portfolioData.content);
+        console.log(portfolioData.content)
+    }
+
+    self.BindingLanguage = function (languageCode, data) {
+        var returnData = data.filter(function (item) {
+            return item.languageCode === languageCode
+        })[0];
+        InitViewModel(returnData.content);
+    }
+}
+
+function ViewModel() {
+    var self = this;
+
+    self.LanguageViewModel = new LaguageViewModel();
+
+    (function () {
+        (new App.PreloadVisibility()).Active();
+        App.FetchCountryData().then(function (currentCountry) {
+            App.FetchLanguage().then(function (languageDataSet) {
+                self.LanguageViewModel.BindingLanguage(currentCountry.countryCode, languageDataSet);
+            })
+        }).then(function () {
+            (new App.PreloadVisibility()).Hidden();
+        })
+    })();
+}
+
+const OnLoadPage = (function () {
+    window.addEventListener('load', (event) => {
+        ko.applyBindings(ViewModel, document.getElementById('main-page'));
+    });
+})();
 
 SmoothScroll({
     frameRate: 150,

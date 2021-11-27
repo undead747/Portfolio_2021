@@ -185,8 +185,7 @@
                             <h4 data-bind="text: title_1"></h4>
                             <h5 data-bind="text: title_2"></h5>
                         </div>
-                        <a href="#" class="btn btn--portfolio-card">
-                            See Details
+                        <a href="#" class="btn btn--portfolio-card" data-bind="text: button">
                         </a>
                     </div>
                 </div>
@@ -197,34 +196,33 @@
         <section class="contact" id="contact">
             <div class="contact__wrapper" data-aos="fade-up">
                 <div class="contact__title title-type-2 title-type-2--contact">
-                    <h4>Contact Me</h4>
-                    <h3>Reach out for a new project or just say hello</h3>
+                    <h4 data-bind="text: LanguageViewModel.Contact.title_1"></h4>
+                    <h3 data-bind="text: LanguageViewModel.Contact.title_2"></h3>
                 </div>
                 <form class="contact__form form form--dark" id="contact-form" name="contact-form">
                     <input type="hidden" name="contact_number">
                     <div>
-                        <label for="contact-name">Name</label>
-                        <input type="text" id="contact-name" name="contact-name" placeholder="Enter your name" required>
+                        <label for="contact-name" data-bind="text: LanguageViewModel.Contact.contactForm.name.title"></label>
+                        <input type="text" id="contact-name" name="contact-name" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.name.placeHolder}" required>
                     </div>
                     <div>
-                        <label for="contact-email">Email</label>
-                        <input type="text" id="contact-email" name="contact-email" placeholder="Enter your email"
+                        <label for="contact-email" data-bind="text: LanguageViewModel.Contact.contactForm.email.title"></label>
+                        <input type="text" id="contact-email" name="contact-email" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.email.placeHolder}"
                             required>
                     </div>
                     <div>
-                        <label for="contact-subject">Subject</label>
-                        <input type="text" id="contact-subject" name="contact-subject"
-                            placeholder="Enter your email subject">
+                        <label for="contact-subject" data-bind="text: LanguageViewModel.Contact.contactForm.subject.title"></label>
+                        <input type="text" id="contact-subject" name="contact-subject" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.subject.placeHolder}">
                     </div>
                     <div>
-                        <label for="contact-message">Your Message</label>
+                        <label for="contact-message" data-bind="text: LanguageViewModel.Contact.contactForm.message.title"></label>
                         <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
                     </div>
-                    <button id="contact-submit-button" class="btn btn--contact" type="submit">Submit</button>
+                    <button id="contact-submit-button" class="btn btn--contact" type="submit" data-bind="text: LanguageViewModel.Contact.contactForm.submit.title"></button>
                 </form>
 
                 <div class="contact__info">
-                    <h4 class="contact__info-title">Contact Info</h4>
+                    <h4 class="contact__info-title" data-bind="text: LanguageViewModel.Contact.title_3"></h4>
                     <p class="contact__info-content"><i class="fas fa-envelope"></i>minhtrandev1997@gmail.com</p>
                     <p class="contact__info-content"><i class="fas fa-globe"></i>undead747.github.io/Portfolio_2021</p>
                     <div class="contact__info-icon-group">

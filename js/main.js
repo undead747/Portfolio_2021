@@ -91,7 +91,7 @@ const SideBarModule = (function () {
             contactLink.classList.add('sidebar--active');
         }
     }
-})();
+})()
 
 const HeaderModule = (function () {
     const header = document.getElementById('banner-header');
@@ -163,7 +163,6 @@ const EmailService = (function () {
 
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault();
-
         (new App.PreloadVisibility()).Active();
 
         //Start Sending Email
@@ -171,14 +170,14 @@ const EmailService = (function () {
             .then(function () {
                 (new App.PreloadVisibility()).Hidden();
                 (new App.ModalVisibility()).Active();
-                App.SetModalText('Thank you for sending me a message. I will reply soon', App.MessageMode.Success);
+                App.SetModalMode(App.MessageMode.Success.id);
 
                 setTimeout(function () {
                     (new App.ModalVisibility()).Hidden();
                     document.getElementById('contact-form').reset();
                 }, messageDisplayTime);
             }, function (error) {
-                App.SetModalText('Some thing when wrong, please try again', App.MessageMode.Fail);
+                App.SetModalMode(App.MessageMode.Fail.id);
                 setTimeout(function () {
                     (new App.ModalVisibility()).Hidden();
                     document.getElementById('contact-form').reset();
@@ -197,9 +196,18 @@ const ModalModule = (function () {
     const errorIcon = document.querySelector('.js-error-icon');
 
     const MessageMode = {
-        Success: 0,
-        Fail: 1,
-        Error: 2
+        Success: {
+            id: 0,
+            text: ko.observable()
+        },
+        Fail: {
+            id: 1,
+            text: ko.observable()
+        },
+        Error: {
+            id: 2,
+            text: ko.observable()
+        }
     }
 
     function ModalVisibility() {
@@ -219,16 +227,17 @@ const ModalModule = (function () {
         }
     }
 
-    function SetModalText(text, messageMode) {
-        modalText.innerText = text;
-
+    function SetModalMode(messageMode) {
+        
         switch (messageMode) {
-            case MessageMode.Success:
+            case MessageMode.Success.id:
+                modalText.innerText = MessageMode.Success.text();
                 successIcon.style.display = "block";
                 failIcon.style.display = "none";
                 errorIcon.style.display = "none";
                 break;
-            case MessageMode.Fail:
+            case MessageMode.Fail.id:
+                modalText.innerText = MessageMode.Fail.text();
                 successIcon.style.display = "none";
                 failIcon.style.display = "block";
                 errorIcon.style.display = "none";
@@ -241,9 +250,16 @@ const ModalModule = (function () {
         }
     }
 
+    function SetMessageContent (successText, failText, errorText){
+        MessageMode.Success.text(successText);
+        MessageMode.Fail.text(failText);
+        MessageMode.Error.text(errorText);
+    }
+
     App.ModalVisibility = ModalVisibility;
-    App.SetModalText = SetModalText;
+    App.SetModalMode = SetModalMode;
     App.MessageMode = MessageMode;
+    App.SetMessageContent = SetMessageContent;
 })()
 
 const FetchDataService = (function () {
@@ -282,7 +298,7 @@ const CheckUserCountryService = (function () {
     }
 
     App.FetchCountryData = fetchCountryData;
-})();
+})()
 
 function LaguageViewModel() {
     var self = this;
@@ -332,11 +348,25 @@ function LaguageViewModel() {
         title_2: ko.observable(),
         title_3: ko.observable(),
         contactForm: {
-            name: ko.observable(),
-            email: ko.observable(),
-            subject: ko.observable(),
-            message: ko.observable(),
-            submit: ko.observable()
+            name: {
+                title: ko.observable(),
+                placeHolder: ko.observable()
+            },
+            email: {
+                title: ko.observable(),
+                placeHolder: ko.observable()
+            },
+            subject: {
+                title: ko.observable(),
+                placeHolder: ko.observable()
+            },
+            message: {
+                title: ko.observable(),
+                placeHolder: ko.observable()
+            },
+            submit: {
+                title: ko.observable()
+            }
         }
     };
 
@@ -412,7 +442,7 @@ function LaguageViewModel() {
         self.About.sectionTitle(aboutData.title);
         self.About.paragraph_1(aboutData.content.p_1);
         self.About.paragraph_2(aboutData.content.p_2);
-        
+
         self.ResumePartOne.sectionTitle(resumePart1Data.title);
         self.ResumePartOne.contentBlocks(resumePart1Data.content);
 
@@ -422,11 +452,26 @@ function LaguageViewModel() {
         self.Services.title_1(serviceData.title_1);
         self.Services.title_2(serviceData.title_2);
         self.Services.contentBlocks(serviceData.content);
-        
+
         self.Portfolio.title_1(portfolioData.title_1);
         self.Portfolio.title_2(portfolioData.title_2);
         self.Portfolio.contentBlocks(portfolioData.content);
-        console.log(portfolioData.content)
+
+        self.Contact.sectionTitle(contactData.section);
+        self.Contact.title_1(contactData.title_1);
+        self.Contact.title_2(contactData.title_2);
+        self.Contact.title_3(contactData.title_3);
+        self.Contact.contactForm.name.title(contactData.content[0].title);
+        self.Contact.contactForm.name.placeHolder(contactData.content[0].placeholder);
+        self.Contact.contactForm.email.title(contactData.content[1].title);
+        self.Contact.contactForm.email.placeHolder(contactData.content[1].placeholder);
+        self.Contact.contactForm.subject.title(contactData.content[2].title);
+        self.Contact.contactForm.subject.placeHolder(contactData.content[2].placeholder);
+        self.Contact.contactForm.message.title(contactData.content[3].title);
+        self.Contact.contactForm.message.placeHolder(contactData.content[3].placeholder);
+        self.Contact.contactForm.submit.title(contactData.content[4].title);
+        
+        App.SetMessageContent(messageData.content[0].content, messageData.content[1].content, messageData.content[1].content);
     }
 
     self.BindingLanguage = function (languageCode, data) {

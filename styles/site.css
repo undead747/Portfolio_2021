@@ -473,24 +473,39 @@ input:-webkit-autofill {
 }
 
 .banner {
-    background: url('../images/Background_Images.png') no-repeat center center fixed;
+    background: url('../images/Background_Images.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed;       
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    overflow: hidden;
 }
 
 @media only screen and (min-width: 768px) {
     .banner {
-        background: url('../images/Background_Images2x.png') no-repeat center center fixed;
+        background: url('../images/Background_Images2x.png');
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-attachment: fixed;       
+        webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
-        overflow: hidden;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .banner {
-        background: url('../images/Background_Images3x.png') no-repeat center center fixed;
+        background: url('../images/Background_Images3x.png');
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-attachment: fixed;       
+        webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
-        overflow: hidden;
     }
 }
 

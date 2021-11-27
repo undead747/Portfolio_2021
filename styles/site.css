@@ -476,7 +476,7 @@ input:-webkit-autofill {
     background: url('../images/Background_Images.png');
     background-repeat: no-repeat; 
     background-position: center;
-    background-attachment: fixed;       
+    background-attachment: scroll;       
     webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -30,11 +30,11 @@
                 </path>
                 <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round" stroke="var(--secondary)"></path>
-                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="var(--secondary)"
+                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 1.0.7727 17 13 17 13" stroke="var(--secondary)"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
 
-            <div class="loader">Loading<span class="loader__dot">.</span><span class="loader__dot">.</span><span
+            <div class="loader"><span data-bind="text: LanguageViewModel.Loading.sectionTitle"></span><span class="loader__dot">.</span><span class="loader__dot">.</span><span
                     class="loader__dot">.</span></div>
         </div>
     </div>
@@ -43,11 +43,11 @@
             <a type="button" class="aside__link aside__link--close-icon js-side-bar-toggle"><i
                     class="fas fa-times"></i></a>
             <div class="aside__link-group">
-                <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link">Home</a>
-                <a id="about-link" href="#about" class="aside__link js-aside__link">About</a>
-                <a id="service-link" href="#service" class="aside__link js-aside__link">Service</a>
-                <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link">Portfolio</a>
-                <a id="contact-link" href="#contact" class="aside__link js-aside__link">Contact</a>
+                <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link" data-bind="text: LanguageViewModel.Banner.sectionName"></a>
+                <a id="about-link" href="#about" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.About.sectionName"></a>
+                <a id="service-link" href="#service" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Services.sectionName"></a>
+                <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Portfolio.sectionName"></a>
+                <a id="contact-link" href="#contact" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Contact.sectionName"></a>
             </div>
         </aside>
 
@@ -66,8 +66,7 @@
                 <h3 class="js-banner__title-top" data-bind="text: LanguageViewModel.Banner.title_1"></h3>
                 <h2 class="js-banner__title-bottom-1" data-bind="text: LanguageViewModel.Banner.title_2">
                 </h2>
-                <h2 class="js-banner__title-bottom-2">
-                    WEB/UI DEVELOPER
+                <h2 class="js-banner__title-bottom-2" data-bind="text: LanguageViewModel.Banner.title_3">
                 </h2>
             </div>
             <p class="banner__project-scroll">
@@ -85,7 +84,7 @@
             <div class="about__wrapper">
                 <div class="about__title">
                     <h3 class="title-type-1 title-type-1--about" data-aos="fade-up"
-                        data-bind="text: LanguageViewModel.About.sectionTitle">ABOUT ME</h3>
+                        data-bind="text: LanguageViewModel.About.sectionTitle"></h3>
                 </div>
                 <picture class="about__image-wrapper" data-aos="fade-right">
                     <source srcset="https://i.imgur.com/zcy3XoC.png" media="(min-width: 768px)">
@@ -95,12 +94,12 @@
                 <div class="about__content" data-aos="fade-down">
                     <div class="about__essay">
                         <p class="about__quote" data-bind="text: LanguageViewModel.About.paragraph_1"></p>
-                        <p data-bind="text: LanguageViewModel.About.paragraph_2"></p>
+                        <p data-bind="html: LanguageViewModel.About.paragraph_2"></p>
                     </div>
 
                     <div class="resume">
                         <div class="resume__title">
-                            <h4 class="title-type-1 title-type-1--resume">Work Experience</h4>
+                            <h4 class="title-type-1 title-type-1--resume" data-bind="text: LanguageViewModel.ResumePartOne.sectionTitle"></h4>
                         </div>
                         <!-- ko foreach: LanguageViewModel.ResumePartOne.contentBlocks -->
                         <div class="resume-item">

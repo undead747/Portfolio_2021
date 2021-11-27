@@ -304,6 +304,7 @@ function LaguageViewModel() {
     var self = this;
 
     self.Banner = {
+        sectionName: ko.observable(),
         sectionTitle: ko.observable(),
         title_1: ko.observable(),
         title_2: ko.observable(),
@@ -313,6 +314,7 @@ function LaguageViewModel() {
     };
 
     self.About = {
+        sectionName: ko.observable(),
         sectionTitle: ko.observable(),
         paragraph_1: ko.observable(),
         paragraph_2: ko.observable()
@@ -329,6 +331,7 @@ function LaguageViewModel() {
     };
 
     self.Services = {
+        sectionName: ko.observable(),
         sectionTitle: ko.observable(),
         title_1: ko.observable(),
         title_2: ko.observable(),
@@ -336,6 +339,7 @@ function LaguageViewModel() {
     };
 
     self.Portfolio = {
+        sectionName: ko.observable(),
         sectionTitle: ko.observable(),
         title_1: ko.observable(),
         title_2: ko.observable(),
@@ -343,6 +347,7 @@ function LaguageViewModel() {
     };
 
     self.Contact = {
+        sectionName: ko.observable(),
         sectionTitle: ko.observable(),
         title_1: ko.observable(),
         title_2: ko.observable(),
@@ -368,6 +373,11 @@ function LaguageViewModel() {
                 title: ko.observable()
             }
         }
+    };
+
+    self.Loading = {
+        sectionName: ko.observable(),
+        sectionTitle: ko.observable()
     };
 
     var Language = {
@@ -413,6 +423,10 @@ function LaguageViewModel() {
         Message: {
             id: 7,
             name: "message"
+        },
+        Loading: {
+            id: 8,
+            name: "loading"
         }
     }
 
@@ -423,6 +437,7 @@ function LaguageViewModel() {
     }
 
     function InitViewModel(data) {
+        console.log(data)
         var bannerData = getSectionById(Section.Banner.id, data);
         var aboutData = getSectionById(Section.About.id, data);
         var resumePart1Data = getSectionById(Section.Resume_1.id, data);
@@ -431,7 +446,9 @@ function LaguageViewModel() {
         var portfolioData = getSectionById(Section.Portfilio.id, data);
         var contactData = getSectionById(Section.Contact.id, data);
         var messageData = getSectionById(Section.Message.id, data);
+        var loadingData = getSectionById(Section.Loading.id, data);
 
+        self.Banner.sectionName(bannerData.section);
         self.Banner.sectionTitle(bannerData.title);
         self.Banner.title_1(bannerData.content.title_1);
         self.Banner.title_2(bannerData.content.title_2);
@@ -439,6 +456,7 @@ function LaguageViewModel() {
         self.Banner.buttonTitle(bannerData.content.icon_1_title);
         self.Banner.scrollTitle(bannerData.content.icon_2_title);
 
+        self.About.sectionName(aboutData.section);
         self.About.sectionTitle(aboutData.title);
         self.About.paragraph_1(aboutData.content.p_1);
         self.About.paragraph_2(aboutData.content.p_2);
@@ -449,14 +467,17 @@ function LaguageViewModel() {
         self.ResumePartTwo.sectionTitle(resumePart2Data.title);
         self.ResumePartTwo.contentBlocks(resumePart2Data.content);
 
+        self.Services.sectionName(serviceData.section);
         self.Services.title_1(serviceData.title_1);
         self.Services.title_2(serviceData.title_2);
         self.Services.contentBlocks(serviceData.content);
 
+        self.Portfolio.sectionName(portfolioData.section);
         self.Portfolio.title_1(portfolioData.title_1);
         self.Portfolio.title_2(portfolioData.title_2);
         self.Portfolio.contentBlocks(portfolioData.content);
 
+        self.Contact.sectionName(contactData.section);
         self.Contact.sectionTitle(contactData.section);
         self.Contact.title_1(contactData.title_1);
         self.Contact.title_2(contactData.title_2);
@@ -471,6 +492,8 @@ function LaguageViewModel() {
         self.Contact.contactForm.message.placeHolder(contactData.content[3].placeholder);
         self.Contact.contactForm.submit.title(contactData.content[4].title);
         
+        self.Loading.sectionTitle(loadingData.content);
+
         App.SetMessageContent(messageData.content[0].content, messageData.content[1].content, messageData.content[1].content);
     }
 

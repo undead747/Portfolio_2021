@@ -483,6 +483,24 @@ input:-webkit-autofill {
     background-size: cover;
 }
 
+.banner__scroll{
+    background-color: transparent;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 2px;
+    
+    font-size: .8rem;
+    color: var(--primary-color-light);
+    font-family: var(--body-font), var(--default-font);
+    text-align: center;
+
+    padding: .1em;
+    margin-right: .7em;
+}
+
+.banner__scroll option{
+    color: var(--primary-color-dark);
+}
+
 @media only screen and (min-width: 768px) {
     .banner {
         background: url('../images/Background_Images2x.png');
@@ -539,7 +557,7 @@ input:-webkit-autofill {
 }
 
 .banner__header {
-    position: fixed;
+position: fixed;
     top: 0;
     left: 0;
     z-index: var(--z-index-level-1);
@@ -547,7 +565,8 @@ input:-webkit-autofill {
     width: 100%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
 
     transition: 0.5s linear;
 }
@@ -559,6 +578,7 @@ input:-webkit-autofill {
 
 .banner__icon {
     font-size: 1.5rem;
+    margin-right: auto;
 }
 
 .banner__sidebar-icon {

@@ -228,7 +228,7 @@ const ModalModule = (function () {
     }
 
     function SetModalMode(messageMode) {
-        
+
         switch (messageMode) {
             case MessageMode.Success.id:
                 modalText.innerText = MessageMode.Success.text();
@@ -250,7 +250,7 @@ const ModalModule = (function () {
         }
     }
 
-    function SetMessageContent (successText, failText, errorText){
+    function SetMessageContent(successText, failText, errorText) {
         MessageMode.Success.text(successText);
         MessageMode.Fail.text(failText);
         MessageMode.Error.text(errorText);
@@ -302,6 +302,15 @@ const CheckUserCountryService = (function () {
 
 function LaguageViewModel() {
     var self = this;
+
+    self.SelectedLanguage = ko.observable();
+    self.SelectedLanguage.subscribe(function(value){
+        var selectedLanguage = self.AvailableLanguage().filter(function(item){
+            return item.Id === value
+        })[0];
+
+        BindingLanguage(selectedLanguage.Code);
+    })
 
     self.Banner = {
         sectionName: ko.observable(),
@@ -380,16 +389,23 @@ function LaguageViewModel() {
         sectionTitle: ko.observable()
     };
 
-    var Language = {
-        VietNam: {
+    self.AvailableLanguage = ko.observableArray([
+        {
             Id: 0,
-            Code: "VN"
+            Code: "VN",
+            Name: "Vietnamese"
         },
-        Japan: {
+        {
             Id: 1,
-            Code: "JP"
+            Code: "JP",
+            Name: "Japanese"
+        },
+        {
+            Id: 2,
+            Code: "US",
+            Name: "English"
         }
-    }
+    ]);
 
     var Section = {
         Banner: {
@@ -427,6 +443,10 @@ function LaguageViewModel() {
         Loading: {
             id: 8,
             name: "loading"
+        },
+        Language: {
+            id: 9,
+            name: "language"
         }
     }
 
@@ -437,7 +457,6 @@ function LaguageViewModel() {
     }
 
     function InitViewModel(data) {
-        console.log(data)
         var bannerData = getSectionById(Section.Banner.id, data);
         var aboutData = getSectionById(Section.About.id, data);
         var resumePart1Data = getSectionById(Section.Resume_1.id, data);
@@ -447,6 +466,7 @@ function LaguageViewModel() {
         var contactData = getSectionById(Section.Contact.id, data);
         var messageData = getSectionById(Section.Message.id, data);
         var loadingData = getSectionById(Section.Loading.id, data);
+        var languageOptionData = getSectionById(Section.Language.id, data);
 
         self.Banner.sectionName(bannerData.section);
         self.Banner.sectionTitle(bannerData.title);
@@ -491,17 +511,38 @@ function LaguageViewModel() {
         self.Contact.contactForm.message.title(contactData.content[3].title);
         self.Contact.contactForm.message.placeHolder(contactData.content[3].placeholder);
         self.Contact.contactForm.submit.title(contactData.content[4].title);
-        
+
         self.Loading.sectionTitle(loadingData.content);
 
         App.SetMessageContent(messageData.content[0].content, messageData.content[1].content, messageData.content[1].content);
+        self.AvailableLanguage(languageOptionData.content);
     }
 
-    self.BindingLanguage = function (languageCode, data) {
-        var returnData = data.filter(function (item) {
-            return item.languageCode === languageCode
+    self.SetLanguageOptions = function(languageCode){
+        var selectedLanguage = self.AvailableLanguage().filter(function(item){
+            return item.Code == languageCode
         })[0];
-        InitViewModel(returnData.content);
+
+        var englishOption = self.AvailableLanguage().filter(function(item){
+            return item.Code == "US"
+        })[0];
+        
+        if(selectedLanguage == null) self.SelectedLanguage(englishOption.Id);
+        else self.SelectedLanguage(selectedLanguage.Id);
+    }
+
+    function BindingLanguage(languageCode) {
+        (new App.PreloadVisibility()).Active();
+        return App.FetchLanguage().then(function (languageDataSet) {
+            var returnData = languageDataSet.filter(function (item) {
+                return item.languageCode === languageCode
+            })[0];
+
+            InitViewModel(returnData.content);
+            setTimeout(function(){
+                (new App.PreloadVisibility()).Hidden();
+            },300)
+        })
     }
 }
 
@@ -513,9 +554,7 @@ function ViewModel() {
     (function () {
         (new App.PreloadVisibility()).Active();
         App.FetchCountryData().then(function (currentCountry) {
-            App.FetchLanguage().then(function (languageDataSet) {
-                self.LanguageViewModel.BindingLanguage(currentCountry.countryCode, languageDataSet);
-            })
+            return self.LanguageViewModel.SetLanguageOptions(currentCountry.countryCode);
         }).then(function () {
             (new App.PreloadVisibility()).Hidden();
         })

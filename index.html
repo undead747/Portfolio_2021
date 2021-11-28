@@ -30,12 +30,13 @@
                 </path>
                 <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round" stroke="var(--secondary)"></path>
-                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 1.0.7727 17 13 17 13" stroke="var(--secondary)"
+                <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="var(--secondary)"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
 
-            <div class="loader"><span data-bind="text: LanguageViewModel.Loading.sectionTitle"></span><span class="loader__dot">.</span><span class="loader__dot">.</span><span
-                    class="loader__dot">.</span></div>
+            <div class="loader"><span data-bind="text: LanguageViewModel.Loading.sectionTitle"></span><span
+                    class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span>
+            </div>
         </div>
     </div>
     <div class="loaded-content" id="loaded-content">
@@ -43,11 +44,16 @@
             <a type="button" class="aside__link aside__link--close-icon js-side-bar-toggle"><i
                     class="fas fa-times"></i></a>
             <div class="aside__link-group">
-                <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link" data-bind="text: LanguageViewModel.Banner.sectionName"></a>
-                <a id="about-link" href="#about" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.About.sectionName"></a>
-                <a id="service-link" href="#service" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Services.sectionName"></a>
-                <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Portfolio.sectionName"></a>
-                <a id="contact-link" href="#contact" class="aside__link js-aside__link" data-bind="text: LanguageViewModel.Contact.sectionName"></a>
+                <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link"
+                    data-bind="text: LanguageViewModel.Banner.sectionName"></a>
+                <a id="about-link" href="#about" class="aside__link js-aside__link"
+                    data-bind="text: LanguageViewModel.About.sectionName"></a>
+                <a id="service-link" href="#service" class="aside__link js-aside__link"
+                    data-bind="text: LanguageViewModel.Services.sectionName"></a>
+                <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link"
+                    data-bind="text: LanguageViewModel.Portfolio.sectionName"></a>
+                <a id="contact-link" href="#contact" class="aside__link js-aside__link"
+                    data-bind="text: LanguageViewModel.Contact.sectionName"></a>
             </div>
         </aside>
 
@@ -60,6 +66,11 @@
             </div>
             <div class="banner__header banner__header--scroll-default" id="banner-header">
                 <i class="fab fa-medium-m banner__icon"></i>
+                <select aria-label="select language" class="banner__scroll" data-bind="options: LanguageViewModel.AvailableLanguage,
+                optionsText: 'Name',
+                optionsValue: 'Id',
+                value: LanguageViewModel.SelectedLanguage">
+                </select>
                 <i class="fas fa-bars banner__sidebar-icon js-side-bar-toggle"></i>
             </div>
             <div class="banner__title">
@@ -99,7 +110,8 @@
 
                     <div class="resume">
                         <div class="resume__title">
-                            <h4 class="title-type-1 title-type-1--resume" data-bind="text: LanguageViewModel.ResumePartOne.sectionTitle"></h4>
+                            <h4 class="title-type-1 title-type-1--resume"
+                                data-bind="text: LanguageViewModel.ResumePartOne.sectionTitle"></h4>
                         </div>
                         <!-- ko foreach: LanguageViewModel.ResumePartOne.contentBlocks -->
                         <div class="resume-item">
@@ -201,23 +213,32 @@
                 <form class="contact__form form form--dark" id="contact-form" name="contact-form">
                     <input type="hidden" name="contact_number">
                     <div>
-                        <label for="contact-name" data-bind="text: LanguageViewModel.Contact.contactForm.name.title"></label>
-                        <input type="text" id="contact-name" name="contact-name" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.name.placeHolder}" required>
-                    </div>
-                    <div>
-                        <label for="contact-email" data-bind="text: LanguageViewModel.Contact.contactForm.email.title"></label>
-                        <input type="text" id="contact-email" name="contact-email" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.email.placeHolder}"
+                        <label for="contact-name"
+                            data-bind="text: LanguageViewModel.Contact.contactForm.name.title"></label>
+                        <input type="text" id="contact-name" name="contact-name"
+                            data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.name.placeHolder}"
                             required>
                     </div>
                     <div>
-                        <label for="contact-subject" data-bind="text: LanguageViewModel.Contact.contactForm.subject.title"></label>
-                        <input type="text" id="contact-subject" name="contact-subject" data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.subject.placeHolder}">
+                        <label for="contact-email"
+                            data-bind="text: LanguageViewModel.Contact.contactForm.email.title"></label>
+                        <input type="text" id="contact-email" name="contact-email"
+                            data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.email.placeHolder}"
+                            required>
                     </div>
                     <div>
-                        <label for="contact-message" data-bind="text: LanguageViewModel.Contact.contactForm.message.title"></label>
+                        <label for="contact-subject"
+                            data-bind="text: LanguageViewModel.Contact.contactForm.subject.title"></label>
+                        <input type="text" id="contact-subject" name="contact-subject"
+                            data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.subject.placeHolder}">
+                    </div>
+                    <div>
+                        <label for="contact-message"
+                            data-bind="text: LanguageViewModel.Contact.contactForm.message.title"></label>
                         <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
                     </div>
-                    <button id="contact-submit-button" class="btn btn--contact" type="submit" data-bind="text: LanguageViewModel.Contact.contactForm.submit.title"></button>
+                    <button id="contact-submit-button" class="btn btn--contact" type="submit"
+                        data-bind="text: LanguageViewModel.Contact.contactForm.submit.title"></button>
                 </form>
 
                 <div class="contact__info">

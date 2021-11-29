@@ -151,7 +151,7 @@ const PreLoadAnimationModule = (function () {
     }
 
     App.PreloadVisibility = PreloadVisibility;
-    App.OnLoadPreloadAnimation = OnLoadPreloadAnimation;
+    App.decorateBannerTitleAnimate = decorateBannerTitleAnimate;
 })()
 
 const EmailService = (function () {
@@ -556,6 +556,7 @@ function ViewModel() {
         App.FetchCountryData().then(function (currentCountry) {
             return self.LanguageViewModel.SetLanguageOptions(currentCountry.countryCode);
         }).then(function () {
+            App.decorateBannerTitleAnimate();
             (new App.PreloadVisibility()).Hidden();
         })
     })();

@@ -344,6 +344,7 @@ function LaguageViewModel() {
         sectionTitle: ko.observable(),
         title_1: ko.observable(),
         title_2: ko.observable(),
+        title_3: ko.observable(),
         contentBlocks: ko.observable()
     };
 
@@ -490,6 +491,7 @@ function LaguageViewModel() {
         self.Services.sectionName(serviceData.section);
         self.Services.title_1(serviceData.title_1);
         self.Services.title_2(serviceData.title_2);
+        self.Services.title_3(serviceData.title_3);
         self.Services.contentBlocks(serviceData.content);
 
         self.Portfolio.sectionName(portfolioData.section);

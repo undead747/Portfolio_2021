@@ -386,7 +386,7 @@ function LaguageViewModel() {
 
     self.Loading = {
         sectionName: ko.observable(),
-        sectionTitle: ko.observable()
+        sectionTitle: ko.observable("Loading")
     };
 
     self.AvailableLanguage = ko.observableArray([

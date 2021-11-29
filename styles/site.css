@@ -897,12 +897,12 @@ section {
 }
 
 .resume__title h4 {
-    font-weight: var(--medium);
+    font-weight: var(--semi-bold);
     margin: 0;
 }
 
 .resume__education-title {
-    font-weight: var(--medium);
+    font-weight: var(--semi-bold);
     margin: 1em 0 0;
 }
 

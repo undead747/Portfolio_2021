@@ -304,8 +304,8 @@ function LaguageViewModel() {
     var self = this;
 
     self.SelectedLanguage = ko.observable();
-    self.SelectedLanguage.subscribe(function(value){
-        var selectedLanguage = self.AvailableLanguage().filter(function(item){
+    self.SelectedLanguage.subscribe(function (value) {
+        var selectedLanguage = self.AvailableLanguage().filter(function (item) {
             return item.Id === value
         })[0];
 
@@ -390,8 +390,7 @@ function LaguageViewModel() {
         sectionTitle: ko.observable("Loading")
     };
 
-    self.AvailableLanguage = ko.observableArray([
-        {
+    self.AvailableLanguage = ko.observableArray([{
             Id: 0,
             Code: "VN",
             Name: "Vietnamese"
@@ -520,16 +519,16 @@ function LaguageViewModel() {
         self.AvailableLanguage(languageOptionData.content);
     }
 
-    self.SetLanguageOptions = function(languageCode){
-        var selectedLanguage = self.AvailableLanguage().filter(function(item){
+    self.SetLanguageOptions = function (languageCode) {
+        var selectedLanguage = self.AvailableLanguage().filter(function (item) {
             return item.Code == languageCode
         })[0];
 
-        var englishOption = self.AvailableLanguage().filter(function(item){
+        var englishOption = self.AvailableLanguage().filter(function (item) {
             return item.Code == "US"
         })[0];
-        
-        if(selectedLanguage == null) self.SelectedLanguage(englishOption.Id);
+
+        if (selectedLanguage == null) self.SelectedLanguage(englishOption.Id);
         else self.SelectedLanguage(selectedLanguage.Id);
     }
 
@@ -541,9 +540,9 @@ function LaguageViewModel() {
             })[0];
 
             InitViewModel(returnData.content);
-            setTimeout(function(){
+            setTimeout(function () {
                 (new App.PreloadVisibility()).Hidden();
-            },300)
+            }, 300)
         })
     }
 }
@@ -565,9 +564,7 @@ function ViewModel() {
 }
 
 const OnLoadPage = (function () {
-    window.addEventListener('load', (event) => {
-        ko.applyBindings(ViewModel, document.getElementById('main-page'));
-    });
+    ko.applyBindings(ViewModel, document.getElementById('main-page'));
 })();
 
 SmoothScroll({

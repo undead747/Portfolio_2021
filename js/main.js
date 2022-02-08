@@ -558,7 +558,9 @@ function ViewModel() {
             return self.LanguageViewModel.SetLanguageOptions(currentCountry.countryCode);
         }).then(function () {
             App.decorateBannerTitleAnimate();
-            (new App.PreloadVisibility()).Hidden();
+            document.addEventListener('DOMContentLoaded', () =>{
+                (new App.PreloadVisibility()).Hidden();
+            })
         })
     })();
 }

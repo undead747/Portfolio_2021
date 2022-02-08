@@ -34,7 +34,7 @@
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
 
-            <div class="loader"><span data-bind="text: LanguageViewModel.Loading.sectionTitle"></span><span
+            <div class="loader"><span data-bind="html: LanguageViewModel.Loading.sectionTitle"></span><span
                     class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span>
             </div>
         </div>
@@ -45,15 +45,15 @@
                     class="fas fa-times"></i></a>
             <div class="aside__link-group">
                 <a id="banner-link" href="#banner" class="aside__link sidebar--active js-aside__link"
-                    data-bind="text: LanguageViewModel.Banner.sectionName"></a>
+                    data-bind="html: LanguageViewModel.Banner.sectionName"></a>
                 <a id="about-link" href="#about" class="aside__link js-aside__link"
-                    data-bind="text: LanguageViewModel.About.sectionName"></a>
+                    data-bind="html: LanguageViewModel.About.sectionName"></a>
                 <a id="service-link" href="#service" class="aside__link js-aside__link"
-                    data-bind="text: LanguageViewModel.Services.sectionName"></a>
+                    data-bind="html: LanguageViewModel.Services.sectionName"></a>
                 <a id="portfolio-link" href="#portfolio" class="aside__link js-aside__link"
-                    data-bind="text: LanguageViewModel.Portfolio.sectionName"></a>
+                    data-bind="html: LanguageViewModel.Portfolio.sectionName"></a>
                 <a id="contact-link" href="#contact" class="aside__link js-aside__link"
-                    data-bind="text: LanguageViewModel.Contact.sectionName"></a>
+                    data-bind="html: LanguageViewModel.Contact.sectionName"></a>
             </div>
         </aside>
 
@@ -74,20 +74,20 @@
                 <i class="fas fa-bars banner__sidebar-icon js-side-bar-toggle"></i>
             </div>
             <div class="banner__title">
-                <h3 class="js-banner__title-top" data-bind="text: LanguageViewModel.Banner.title_1"></h3>
-                <h2 class="js-banner__title-bottom-1" data-bind="text: LanguageViewModel.Banner.title_2">
+                <h3 class="js-banner__title-top" data-bind="html: LanguageViewModel.Banner.title_1"></h3>
+                <h2 class="js-banner__title-bottom-1" data-bind="html: LanguageViewModel.Banner.title_2">
                 </h2>
-                <h2 class="js-banner__title-bottom-2" data-bind="text: LanguageViewModel.Banner.title_3">
+                <h2 class="js-banner__title-bottom-2" data-bind="html: LanguageViewModel.Banner.title_3">
                 </h2>
             </div>
             <p class="banner__project-scroll">
                 <a class="btn--project-scroll" href="#portfolio">
-                    <span data-bind="text: LanguageViewModel.Banner.buttonTitle"></span>
+                    <span data-bind="html: LanguageViewModel.Banner.buttonTitle"></span>
                     <br />
                     <span class="arrow-icon"></span>
                 </a>
             </p>
-            <a href="#about" class="btn-scroll-down" data-bind="text: LanguageViewModel.Banner.scrollTitle">
+            <a href="#about" class="btn-scroll-down" data-bind="html: LanguageViewModel.Banner.scrollTitle">
             </a>
         </section>
 
@@ -95,7 +95,7 @@
             <div class="about__wrapper">
                 <div class="about__title">
                     <h3 class="title-type-1 title-type-1--about" data-aos="fade-up"
-                        data-bind="text: LanguageViewModel.About.sectionTitle"></h3>
+                        data-bind="html: LanguageViewModel.About.sectionTitle"></h3>
                 </div>
                 <picture class="about__image-wrapper" data-aos="fade-right">
                     <source srcset="https://i.imgur.com/zcy3XoC.png" media="(min-width: 768px)">
@@ -104,40 +104,40 @@
                 </picture>
                 <div class="about__content" data-aos="fade-down">
                     <div class="about__essay">
-                        <p class="about__quote" data-bind="text: LanguageViewModel.About.paragraph_1"></p>
+                        <p class="about__quote" data-bind="html: LanguageViewModel.About.paragraph_1"></p>
                         <p data-bind="html: LanguageViewModel.About.paragraph_2"></p>
                     </div>
 
                     <div class="resume">
                         <div class="resume__title">
                             <h4 class="title-type-1 title-type-1--resume"
-                                data-bind="text: LanguageViewModel.ResumePartOne.sectionTitle"></h4>
+                                data-bind="html: LanguageViewModel.ResumePartOne.sectionTitle"></h4>
                         </div>
                         <!-- ko foreach: LanguageViewModel.ResumePartOne.contentBlocks -->
                         <div class="resume-item">
                             <span class="resume-item__date"><i class="fas fa-calendar-week"></i> <span
-                                    data-bind="text: time"></span></span>
+                                    data-bind="html: time"></span></span>
                             <div class="resume-item__title">
-                                <h4 data-bind="text: title_1"></h4>
-                                <h4><i class="fas fa-briefcase"></i> <span data-bind="text: title_2"></span></h4>
+                                <h4 data-bind="html: title_1"></h4>
+                                <h4><i class="fas fa-briefcase"></i> <span data-bind="html: title_2"></span></h4>
                             </div>
-                            <p class="resume-item-essay" data-bind="text: p"></p>
+                            <p class="resume-item-essay" data-bind="html: p"></p>
                         </div>
                         <!-- /ko -->
 
                         <h4 class="title-type-1 title-type-1--resume resume__education-title"
-                            data-bind="text: LanguageViewModel.ResumePartTwo.sectionTitle">
+                            data-bind="html: LanguageViewModel.ResumePartTwo.sectionTitle">
                         </h4>
 
                         <!-- ko foreach: LanguageViewModel.ResumePartTwo.contentBlocks -->
                         <div class="resume-item">
                             <span class="resume-item__date"><i class="fas fa-calendar-week"></i> <span
-                                    data-bind="text: time"></span></span>
+                                    data-bind="html: time"></span></span>
                             <div class="resume-item__title">
-                                <h4 data-bind="text: title_1"></h4>
-                                <h4><i class="fas fa-university"></i> <span data-bind="text: title_2"></span></h4>
+                                <h4 data-bind="html: title_1"></h4>
+                                <h4><i class="fas fa-university"></i> <span data-bind="html: title_2"></span></h4>
                             </div>
-                            <p class="resume-item-essay" data-bind="text: p">
+                            <p class="resume-item-essay" data-bind="html: p">
                             </p>
                         </div>
                         <!-- /ko -->
@@ -148,8 +148,8 @@
 
         <section class="service" id="service">
             <div class="service__title title-type-2" data-aos="fade-up">
-                <h4 data-bind="text: LanguageViewModel.Services.title_1"></h4>
-                <h3 data-bind="text: LanguageViewModel.Services.title_2"></h3>
+                <h4 data-bind="html: LanguageViewModel.Services.title_1"></h4>
+                <h3 data-bind="html: LanguageViewModel.Services.title_2"></h3>
             </div>
             <div class="service__content">
                 <!-- ko foreach: LanguageViewModel.Services.contentBlocks -->
@@ -157,13 +157,13 @@
                     <div class="card__main">
                         <div class="card__image card__image--icon-only" data-bind="html: title_icon">
                         </div>
-                        <h4 class="card__title" data-bind="text: title"></h4>
-                        <p class="card__quote" data-bind="text: p">
+                        <h4 class="card__title" data-bind="html: title"></h4>
+                        <p class="card__quote" data-bind="html: p">
                         </p>
                     </div>
 
                     <div class="card__footer">
-                        <h4 class="card__footer-title" data-bind="text: LanguageViewModel.Services.title_3"></h4>
+                        <h4 class="card__footer-title" data-bind="html: LanguageViewModel.Services.title_3"></h4>
                         <!-- ko foreach: tools -->
                         <div class="card__footer-content">
                             <h5 class="card__footer-item">
@@ -181,8 +181,8 @@
 
         <section class="portfolio" id="portfolio">
             <div class="title-type-2 portfolio__title" data-aos="fade-up">
-                <h4 data-bind="text: LanguageViewModel.Portfolio.title_1"></h4>
-                <h3 data-bind="text: LanguageViewModel.Portfolio.title_2"></h3>
+                <h4 data-bind="html: LanguageViewModel.Portfolio.title_1"></h4>
+                <h3 data-bind="html: LanguageViewModel.Portfolio.title_2"></h3>
             </div>
 
             <div class="portfolio__content">
@@ -193,10 +193,10 @@
                     </div>
                     <div class="portfolio__card-content">
                         <div class="portfolio__card-title">
-                            <h4 data-bind="text: title_1"></h4>
-                            <h5 data-bind="text: title_2"></h5>
+                            <h4 data-bind="html: title_1"></h4>
+                            <h5 data-bind="html: title_2"></h5>
                         </div>
-                        <a href="#" class="btn btn--portfolio-card" data-bind="text: button">
+                        <a href="#" class="btn btn--portfolio-card" data-bind="html: button">
                         </a>
                     </div>
                 </div>
@@ -207,42 +207,42 @@
         <section class="contact" id="contact">
             <div class="contact__wrapper" data-aos="fade-up">
                 <div class="contact__title title-type-2 title-type-2--contact">
-                    <h4 data-bind="text: LanguageViewModel.Contact.title_1"></h4>
-                    <h3 data-bind="text: LanguageViewModel.Contact.title_2"></h3>
+                    <h4 data-bind="html: LanguageViewModel.Contact.title_1"></h4>
+                    <h3 data-bind="html: LanguageViewModel.Contact.title_2"></h3>
                 </div>
                 <form class="contact__form form form--dark" id="contact-form" name="contact-form">
                     <input type="hidden" name="contact_number">
                     <div>
                         <label for="contact-name"
-                            data-bind="text: LanguageViewModel.Contact.contactForm.name.title"></label>
+                            data-bind="html: LanguageViewModel.Contact.contactForm.name.title"></label>
                         <input type="text" id="contact-name" name="contact-name"
                             data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.name.placeHolder}"
                             required>
                     </div>
                     <div>
                         <label for="contact-email"
-                            data-bind="text: LanguageViewModel.Contact.contactForm.email.title"></label>
+                            data-bind="html: LanguageViewModel.Contact.contactForm.email.title"></label>
                         <input type="text" id="contact-email" name="contact-email"
                             data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.email.placeHolder}"
                             required>
                     </div>
                     <div>
                         <label for="contact-subject"
-                            data-bind="text: LanguageViewModel.Contact.contactForm.subject.title"></label>
+                            data-bind="html: LanguageViewModel.Contact.contactForm.subject.title"></label>
                         <input type="text" id="contact-subject" name="contact-subject"
                             data-bind="attr: {placeholder: LanguageViewModel.Contact.contactForm.subject.placeHolder}">
                     </div>
                     <div>
                         <label for="contact-message"
-                            data-bind="text: LanguageViewModel.Contact.contactForm.message.title"></label>
+                            data-bind="html: LanguageViewModel.Contact.contactForm.message.title"></label>
                         <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
                     </div>
                     <button id="contact-submit-button" class="btn btn--contact" type="submit"
-                        data-bind="text: LanguageViewModel.Contact.contactForm.submit.title"></button>
+                        data-bind="html: LanguageViewModel.Contact.contactForm.submit.title"></button>
                 </form>
 
                 <div class="contact__info">
-                    <h4 class="contact__info-title" data-bind="text: LanguageViewModel.Contact.title_3"></h4>
+                    <h4 class="contact__info-title" data-bind="html: LanguageViewModel.Contact.title_3"></h4>
                     <p class="contact__info-content"><i class="fas fa-envelope"></i>minhtrandev1997@gmail.com</p>
                     <p class="contact__info-content"><i class="fas fa-globe"></i>undead747.github.io/Portfolio_2021</p>
                     <div class="contact__info-icon-group">

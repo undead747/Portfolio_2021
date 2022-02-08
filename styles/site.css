@@ -395,7 +395,7 @@ input:-webkit-autofill {
     width: 100vw;
     height: 100vh;
     background-color: var(--background-color-type-3);
-    transition: .8s ease-in;
+    transition: .7s ease-in;
 }
 
 @media only screen and (min-width: 768px) {
@@ -412,7 +412,7 @@ input:-webkit-autofill {
 
 .aside--open {
     right: 0;
-    transition: .8s ease-out;
+    transition: .5s ease-out;
 }
 
 .aside__link-group {

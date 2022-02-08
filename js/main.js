@@ -557,8 +557,8 @@ function ViewModel() {
         App.FetchCountryData().then(function (currentCountry) {
             return self.LanguageViewModel.SetLanguageOptions(currentCountry.countryCode);
         }).then(function () {
-            App.decorateBannerTitleAnimate();
-            (new App.PreloadVisibility()).Hidden();
+                (new App.PreloadVisibility()).Hidden();
+                App.decorateBannerTitleAnimate();
         })
     })();
 }
